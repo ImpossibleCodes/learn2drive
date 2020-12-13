@@ -17,7 +17,8 @@ class DriveWidget extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(8.0),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(
                 'Hours Driven: ${drive.minutesDriven / 60}',
