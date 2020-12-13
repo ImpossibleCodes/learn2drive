@@ -12,6 +12,7 @@ class Loading extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Loading...',
+                style: TextStyle(color: Colors.blueAccent, decoration: TextDecoration.none),
                 textAlign: TextAlign.center,
               ),
               SpinKitCircle(
