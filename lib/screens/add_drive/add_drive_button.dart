@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:learn2drive/screens/dashboard/add_drive_screen.dart';
+import 'package:learn2drive/screens/add_drive/add_drive_screen.dart';
 
 class AddDriveButton extends StatelessWidget {
   @override

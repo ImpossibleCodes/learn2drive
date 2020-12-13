@@ -44,6 +44,8 @@ dependencies:
   json_serializable: ^3.5.1
   # The following adds a spinny thing
   flutter_spinkit: ^4.1.2
+  # Adds formating stuff
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:

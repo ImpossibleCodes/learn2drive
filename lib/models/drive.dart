@@ -17,7 +17,7 @@ class Drive {
   final String skillsWorkedOn;
   final DateTime date;
 
-  const Drive({
+  Drive({
     @required this.minutesDriven,
     @required this.minutesDrivenNight,
     @required this.milesDriven,

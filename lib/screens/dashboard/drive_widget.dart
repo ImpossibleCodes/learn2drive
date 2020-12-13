@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:learn2drive/models/drive.dart';
 
 class DriveWidget extends StatelessWidget {
-  Drive drive;
+  final Drive drive;
 
   DriveWidget(this.drive);
 
@@ -19,9 +19,37 @@ class DriveWidget extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              TextField(
-                decoration:
-                    InputDecoration(hintText: "Test", border: InputBorder.none),
+              Text(
+                'Hours Driven: ${drive.minutesDriven / 60}',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                'Hours Driven at Night: ${drive.minutesDrivenNight / 60}',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                'Miles Driven: ${drive.milesDriven}',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                'Date: ${drive.date.month}/${drive.date.day}/${drive.date.year}',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 14,
+                ),
               ),
             ],
           ),

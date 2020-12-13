@@ -83,3 +83,7 @@ String getEmail() {
 String getImageURL() {
   return _imageurl;
 }
+
+String getUID() {
+  return _uid;
+}

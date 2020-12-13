@@ -42,6 +42,7 @@ android {
         applicationId "com.learn2drive.learn2drive"
         minSdkVersion 16
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
