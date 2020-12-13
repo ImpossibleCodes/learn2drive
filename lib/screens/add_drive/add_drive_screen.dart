@@ -81,7 +81,7 @@ class _AddDriveState extends State<AddDrive> {
                                 context: context,
                                 initialDate: DateTime.now(),
                                 firstDate: DateTime(2019),
-                                lastDate: DateTime(2024))
+                                lastDate: DateTime.now())
                             .then(
                           (d) {
                             setState(() => _date = d);
