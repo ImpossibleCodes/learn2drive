@@ -24,21 +24,35 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
-  # Firebase
+  # The following adds dependencies for firebase
   firebase_core: ^0.5.3
   firebase_auth: ^0.18.4+1
+  cloud_firestore: ^0.14.4
   # The following adds pre-built sign in buttons
   flutter_signin_button: ^1.1.0
+  # The following adds dependicies to complete google sign in
   google_sign_in: ^4.5.6
+  # The following adds a cool floating action button
+  flutter_speed_dial: ^1.2.5
+  # The following adds the chart thing
+  percent_indicator: "^2.1.7+2"
+  # The following is for json serialization
+  json_serializable: ^3.5.1
+  # The following adds a spinny thing
+  flutter_spinkit: ^4.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # The following is for json serialization
+  json_annotation: ^3.1.1
+  build_runner: ^1.10.9
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

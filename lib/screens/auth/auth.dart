@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'dart:async';
 
+String _uid;
 String _username;
 String _email;
 String _imageurl;
@@ -19,14 +20,16 @@ Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
 
   final GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
-  final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+  final GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount.authentication;
 
   final AuthCredential credential = GoogleAuthProvider.credential(
     accessToken: googleSignInAuthentication.accessToken,
     idToken: googleSignInAuthentication.idToken,
   );
 
-  final UserCredential authResult = await _auth.signInWithCredential(credential);
+  final UserCredential authResult =
+      await _auth.signInWithCredential(credential);
   final User user = authResult.user;
 
   if (user != null) {
@@ -36,6 +39,7 @@ Future<String> signInWithGoogle() async {
     final User currentUser = _auth.currentUser;
     assert(user.uid == currentUser.uid);
 
+    _uid = user.uid;
     _username = user.displayName;
     _email = user.email;
     _imageurl = user.photoURL;

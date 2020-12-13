@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:learn2drive/models/drive.dart';
+
 import 'package:learn2drive/screens/auth/auth.dart';
 import 'package:learn2drive/screens/auth/auth_screen.dart';
+import 'package:learn2drive/screens/dashboard/add_drive_button.dart';
+import 'package:learn2drive/screens/dashboard/drive_widget.dart';
+import 'package:learn2drive/screens/dashboard/overview_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -51,23 +56,28 @@ class DashboardScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Card(
-          margin: EdgeInsets.all(24),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[Text("Logged In")],
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Overview(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                DriveWidget(
+                  Drive(
+                    minutesDriven: 90,
+                    minutesDrivenNight: 30,
+                    milesDriven: 10,
+                    skillsWorkedOn: "parking",
+                    date: DateTime.now(),
+                  ),
+                ),
+              ],
             ),
-          ),
+          ],
         ),
       ),
+      floatingActionButton: AddDriveButton(),
     );
   }
 }
