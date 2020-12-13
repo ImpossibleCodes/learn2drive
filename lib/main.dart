@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:learn2drive/screens/auth/auth_screen.dart';
+import 'package:learn2drive/screens/loading/loading_screen.dart';
 
 import 'package:learn2drive/theme.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: '45 Hours',
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: AuthScreen(),
+      home: Loading(),
     );
   }
 }
