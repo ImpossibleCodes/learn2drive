@@ -8,18 +8,19 @@ class Loading extends StatelessWidget {
       color: Colors.black,
       child: Center(
         child: Column(
-          children: <Widget>[
-            Text(
-              'Loading...',
-              textAlign: TextAlign.center,
-            ),
-            SpinKitCircle(
-              color: Colors.white,
-              size: 70.0,
-            ),
-            Image.asset('assets/logo.png'),
-          ],
-        ),
+          mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Loading...',
+                textAlign: TextAlign.center,
+              ),
+              SpinKitCircle(
+                color: Colors.white,
+                size: 70.0,
+              ),
+              Image.asset('assets/logo.png'),
+            ],
+          ),
       ),
     );
   }
