@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:learn2drive/screens/auth/auth.dart';
+import 'package:learn2drive/screens/dashboard/dashboard_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   @override
@@ -18,16 +20,46 @@ class AuthScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  SignInButton(
-                    MediaQuery.of(context).platformBrightness ==
-                        Brightness.dark
-                        ? Buttons.GoogleDark
-                        : Buttons.Google,
-                    onPressed: () {}
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 5,
+                    width: MediaQuery.of(context).size.height / 5,
+                    child: Image.asset(
+                        MediaQuery.of(context).platformBrightness ==
+                                Brightness.dark
+                            ? 'assets/logoDark.png'
+                            : 'assets/logoLight.png'),
+                  ),
+                  Text(
+                    "Learn2Drive",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                  Text(
+                    "To get started, please sign in!",
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 18,
+                    ),
                   ),
                   SignInButton(
-                    Buttons.FacebookNew,
-                    onPressed: () {},
+                    MediaQuery.of(context).platformBrightness == Brightness.dark
+                        ? Buttons.GoogleDark
+                        : Buttons.Google,
+                    onPressed: () {
+                      signInWithGoogle().then((result) {
+                        if (result != null) {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return DashboardScreen();
+                              },
+                            ),
+                          );
+                        }
+                      });
+                    },
                   ),
                 ],
               ),
