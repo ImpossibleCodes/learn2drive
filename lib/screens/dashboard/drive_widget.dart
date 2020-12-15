@@ -107,6 +107,9 @@ class DriveWidget extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 8,
+                ),
                 Text(
                   DateFormat.yMMMMd("en_US").format(drive.date),
                   textAlign: TextAlign.center,

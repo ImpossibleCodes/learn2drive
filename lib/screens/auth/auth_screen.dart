@@ -29,6 +29,9 @@ class AuthScreen extends StatelessWidget {
                             ? 'assets/logoDark.png'
                             : 'assets/logoLight.png'),
                   ),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text(
                     "Learn2Drive",
                     style: TextStyle(
@@ -36,12 +39,18 @@ class AuthScreen extends StatelessWidget {
                       fontSize: 24,
                     ),
                   ),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text(
                     "To get started, please sign in!",
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 18,
                     ),
+                  ),
+                  SizedBox(
+                    height: 8,
                   ),
                   SignInButton(
                     MediaQuery.of(context).platformBrightness == Brightness.dark
