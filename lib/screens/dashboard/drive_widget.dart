@@ -147,6 +147,7 @@ class _DriveWidgetState extends State<DriveWidget> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Skills: ',
@@ -158,14 +159,17 @@ class _DriveWidgetState extends State<DriveWidget> {
                                   (6 * 4 + 1),
                             ),
                           ),
-                          Text(
-                            widget.drive.skills,
-                            textAlign: TextAlign.left,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: MediaQuery.of(context).size.width /
-                                  (6 * 4 + 1),
+                          Flexible(
+                            child: Text(
+                              widget.drive.skills,
+                              textAlign: TextAlign.left,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 5,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: MediaQuery.of(context).size.width /
+                                    (6 * 4 + 1),
+                              ),
                             ),
                           ),
                         ],
@@ -180,6 +184,7 @@ class _DriveWidgetState extends State<DriveWidget> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Comments: ',
@@ -191,14 +196,17 @@ class _DriveWidgetState extends State<DriveWidget> {
                                   (6 * 4 + 1),
                             ),
                           ),
-                          Text(
-                            widget.drive.comments,
-                            textAlign: TextAlign.left,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: MediaQuery.of(context).size.width /
-                                  (6 * 4 + 1),
+                          Flexible(
+                            child: Text(
+                              widget.drive.comments,
+                              textAlign: TextAlign.left,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 5,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: MediaQuery.of(context).size.width /
+                                    (6 * 4 + 1),
+                              ),
                             ),
                           ),
                         ],
