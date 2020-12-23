@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'dart:async';
-
-String _uid;
-String _username;
-String _email;
-String _imageurl;
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -17,8 +11,6 @@ final GoogleSignIn _googleSignIn = GoogleSignIn(
 );
 
 Future<String> signInWithGoogle() async {
-  await Firebase.initializeApp();
-
   final GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
   final GoogleSignInAuthentication googleSignInAuthentication =
       await googleSignInAccount.authentication;
@@ -39,11 +31,6 @@ Future<String> signInWithGoogle() async {
     final User currentUser = _auth.currentUser;
     assert(user.uid == currentUser.uid);
 
-    _uid = user.uid;
-    _username = user.displayName;
-    _email = user.email;
-    _imageurl = user.photoURL;
-
     print('signInWithGoogle succeeded: $user');
 
     return '$user';
@@ -55,35 +42,37 @@ Future<String> signInWithGoogle() async {
 Future<void> signOutGoogle() async {
   await _googleSignIn.signOut();
 
-  print("User Signed Out");
+  print("User Signed Out Google");
 }
 
 void signOut(BuildContext ctx) async {
-  User user = _auth.currentUser;
-  if (user.providerData[1].providerId == 'google.com') {
-    signOutGoogle();
-  }
+  signOutGoogle();
   _auth.signOut();
+  print("User Signed Out");
+}
+
+bool isLoggedIn() {
+  if (_auth.currentUser == null) return false;
+  return !_auth.currentUser.isAnonymous &&
+      _auth.currentUser.getIdToken() != null;
 }
 
 Future<User> getCurrentUser() async {
-  User _user = _auth.currentUser;
-
-  return _user;
+  return _auth.currentUser;
 }
 
 String getUsername() {
-  return _username;
+  return _auth.currentUser.displayName;
 }
 
 String getEmail() {
-  return _email;
+  return _auth.currentUser.email;
 }
 
 String getImageURL() {
-  return _imageurl;
+  return _auth.currentUser.photoURL;
 }
 
 String getUID() {
-  return _uid;
+  return _auth.currentUser.uid;
 }

@@ -38,7 +38,7 @@ class DefaultAppBar extends AppBar {
               ],
               onChanged: (itemIdentifier) {
                 if (itemIdentifier == "logout") {
-                  signOutGoogle();
+                  signOut(ctx);
                   Navigator.of(ctx).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) {

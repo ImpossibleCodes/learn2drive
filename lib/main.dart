@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'package:learn2drive/screens/auth/auth_screen.dart';
-import 'package:learn2drive/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+import 'package:learn2drive/theme.dart';
+import 'package:learn2drive/screens/auth/auth.dart';
+
+import 'package:learn2drive/screens/auth/auth_screen.dart';
+import 'package:learn2drive/screens/dashboard/dashboard_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'TicTacToe',
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: AuthScreen(),
+      home: isLoggedIn() ? DashboardScreen() : AuthScreen(),
     );
   }
 }
