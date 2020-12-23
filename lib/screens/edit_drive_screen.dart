@@ -8,12 +8,16 @@ import 'package:learn2drive/default_app_bar.dart';
 import 'package:learn2drive/models/drive.dart';
 import 'package:learn2drive/screens/auth/auth.dart';
 
-class AddDrive extends StatefulWidget {
+class EditDrive extends StatefulWidget {
+  final Drive drive;
+
+  EditDrive(this.drive);
+
   @override
-  _AddDriveState createState() => _AddDriveState();
+  _EditDriveState createState() => _EditDriveState();
 }
 
-class _AddDriveState extends State<AddDrive> {
+class _EditDriveState extends State<EditDrive> {
   final _formKey = GlobalKey<FormState>();
   String _id;
   DateTime _date;
@@ -23,25 +27,19 @@ class _AddDriveState extends State<AddDrive> {
   double _minutesDrivenNight;
   String _comments;
 
-  void _onSubmit() {
+  void _onEditComplete() {
     FocusScope.of(context).unfocus();
     if (_formKey.currentState.validate()) {
+      Drive drive = Drive(
+        id: _id,
+        date: _date,
+        skills: _skills,
+        minutesDriven: _minutesDriven,
+        milesDriven: _milesDriven,
+        minutesDrivenNight: _minutesDrivenNight,
+        comments: _comments,
+      );
       try {
-        _id = FirebaseFirestore.instance
-            .collection("users")
-            .doc(getUID())
-            .collection("drives")
-            .doc()
-            .id;
-        Drive drive = Drive(
-          id: _id,
-          date: _date,
-          skills: _skills,
-          minutesDriven: _minutesDriven,
-          milesDriven: _milesDriven,
-          minutesDrivenNight: _minutesDrivenNight,
-          comments: _comments,
-        );
         FirebaseFirestore.instance
             .collection("users")
             .doc(getUID())
@@ -57,6 +55,14 @@ class _AddDriveState extends State<AddDrive> {
 
   @override
   Widget build(BuildContext context) {
+    _id = widget.drive.id;
+    _date = widget.drive.date;
+    _skills = widget.drive.skills;
+    _minutesDriven = widget.drive.minutesDriven;
+    _milesDriven = widget.drive.milesDriven;
+    _minutesDrivenNight = widget.drive.minutesDrivenNight;
+    _comments = widget.drive.comments;
+
     return Scaffold(
       appBar: DefaultAppBar(context),
       body: Center(
@@ -74,17 +80,14 @@ class _AddDriveState extends State<AddDrive> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
+                      padding: const EdgeInsets.only(bottom: 8),
                       child: Row(
                         children: [
                           Expanded(
                             child: TextFormField(
                               key: ValueKey('date'),
-                              decoration: InputDecoration(
-                                labelText: _date == null
-                                    ? "No date selected"
-                                    : DateFormat.yMMMMd("en_US").format(_date),
-                              ),
+                              initialValue:
+                                  DateFormat.yMMMMd("en_US").format(_date),
                               validator: (value) {
                                 if (_date == null) return "Select a date!";
                                 return null;
@@ -104,7 +107,7 @@ class _AddDriveState extends State<AddDrive> {
                             onPressed: () {
                               showDatePicker(
                                       context: context,
-                                      initialDate: DateTime.now(),
+                                      initialDate: _date,
                                       firstDate: DateTime(2016),
                                       lastDate: DateTime.now())
                                   .then(
@@ -128,6 +131,7 @@ class _AddDriveState extends State<AddDrive> {
                               decoration: InputDecoration(
                                 labelText: 'Skills',
                               ),
+                              initialValue: _skills,
                               validator: (value) {
                                 if (_skills == null)
                                   return "Enter skills worked on!";
@@ -154,6 +158,7 @@ class _AddDriveState extends State<AddDrive> {
                               decoration: InputDecoration(
                                 labelText: 'Minutes Driven',
                               ),
+                              initialValue: _minutesDriven.toString(),
                               validator: (value) {
                                 if (_minutesDriven == null)
                                   return "Enter the # of minutes!";
@@ -185,6 +190,7 @@ class _AddDriveState extends State<AddDrive> {
                               decoration: InputDecoration(
                                 labelText: 'Miles Driven',
                               ),
+                              initialValue: _milesDriven.toString(),
                               validator: (value) {
                                 if (_milesDriven == null)
                                   return "Enter the # of miles driven!";
@@ -212,9 +218,12 @@ class _AddDriveState extends State<AddDrive> {
                               decoration: InputDecoration(
                                 labelText: 'Minutes at Night',
                               ),
+                              initialValue: _minutesDrivenNight.toString(),
                               validator: (value) {
                                 if (_minutesDrivenNight == null)
                                   return "Enter the # of minutes!";
+                                else if (_minutesDrivenNight > _minutesDriven)
+                                  return "Enter a valid # of minutes!";
                                 return null;
                               },
                               onChanged: (value) =>
@@ -239,6 +248,7 @@ class _AddDriveState extends State<AddDrive> {
                         decoration: InputDecoration(
                           labelText: "Comments",
                         ),
+                        initialValue: _comments,
                         onChanged: (value) => _comments = value,
                         autocorrect: true,
                         enabled: true,
@@ -251,8 +261,8 @@ class _AddDriveState extends State<AddDrive> {
                       ),
                     ),
                     RaisedButton(
-                      onPressed: _onSubmit,
-                      child: Text('Add Drive'),
+                      onPressed: _onEditComplete,
+                      child: Text('Save Drive'),
                       elevation: 8,
                     ),
                   ],

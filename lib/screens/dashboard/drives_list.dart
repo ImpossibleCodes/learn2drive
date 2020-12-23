@@ -12,10 +12,19 @@ class DrivesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
-          .collection('users')
-          .doc(getUID())
-          .collection('drives')
-          .orderBy('date')
+          .collection(
+            'users',
+          )
+          .doc(
+            getUID(),
+          )
+          .collection(
+            'drives',
+          )
+          .orderBy(
+            'date',
+            descending: true,
+          )
           .snapshots(),
       builder: (ctx, drivesSnapshot) {
         if (drivesSnapshot.connectionState == ConnectionState.waiting) {
@@ -34,7 +43,7 @@ class DrivesList extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(16),
                     child: Text(
-                      "No drives added yet, click the plus button to add a drive",
+                      "No drives added yet, click the + button to add a drive",
                       textAlign: TextAlign.center,
                     ),
                   ),

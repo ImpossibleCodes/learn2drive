@@ -3,20 +3,50 @@ import 'package:intl/intl.dart';
 
 import 'package:learn2drive/models/drive.dart';
 
-class DriveWidget extends StatelessWidget {
+import 'package:learn2drive/screens/edit_drive_screen.dart';
+
+class DriveWidget extends StatefulWidget {
   final Drive drive;
 
   DriveWidget(this.drive);
 
   @override
+  _DriveWidgetState createState() => _DriveWidgetState();
+}
+
+class _DriveWidgetState extends State<DriveWidget> {
+  bool _isFullView = false;
+  @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Center(
-        child: Card(
-          margin: EdgeInsets.all(16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
+    return Center(
+      child: Card(
+        margin: EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: InkWell(
+          onTap: () {
+            setState(
+              () {
+                _isFullView = !_isFullView;
+              },
+            );
+          },
+          onLongPress: () {
+            setState(
+              () {
+                _isFullView = false;
+              },
+            );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return EditDrive(widget.drive);
+                },
+              ),
+            );
+          },
+          borderRadius: BorderRadius.circular(16),
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Column(
@@ -30,7 +60,8 @@ class DriveWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            (drive.minutesDriven / 60).toStringAsFixed(1),
+                            (widget.drive.minutesDriven / 60)
+                                .toStringAsFixed(1),
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -57,7 +88,8 @@ class DriveWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            (drive.minutesDrivenNight / 60).toStringAsFixed(1),
+                            (widget.drive.minutesDrivenNight / 60)
+                                .toStringAsFixed(1),
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -84,7 +116,7 @@ class DriveWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            (drive.milesDriven).toStringAsFixed(1),
+                            (widget.drive.milesDriven).toStringAsFixed(1),
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -107,16 +139,84 @@ class DriveWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  DateFormat.yMMMMd("en_US").format(drive.date),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: MediaQuery.of(context).size.width / (6 * 5 + 1),
+                if (_isFullView && widget.drive.skills != null)
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Skills: ',
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: MediaQuery.of(context).size.width /
+                                  (6 * 4 + 1),
+                            ),
+                          ),
+                          Text(
+                            widget.drive.skills,
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: MediaQuery.of(context).size.width /
+                                  (6 * 4 + 1),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                if (_isFullView && widget.drive.comments != null)
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 8.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Comments: ',
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: MediaQuery.of(context).size.width /
+                                  (6 * 4 + 1),
+                            ),
+                          ),
+                          Text(
+                            widget.drive.comments,
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: MediaQuery.of(context).size.width /
+                                  (6 * 4 + 1),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 8.0,
+                  ),
+                  child: Text(
+                    DateFormat.yMMMMd("en_US").format(widget.drive.date),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: MediaQuery.of(context).size.width / (6 * 5 + 1),
+                    ),
                   ),
                 ),
               ],

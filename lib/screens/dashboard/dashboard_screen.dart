@@ -19,10 +19,19 @@ class DashboardScreen extends StatelessWidget {
           children: <Widget>[
             StreamBuilder(
               stream: FirebaseFirestore.instance
-                  .collection('users')
-                  .doc(getUID())
-                  .collection('drives')
-                  .orderBy('date')
+                  .collection(
+                    'users',
+                  )
+                  .doc(
+                    getUID(),
+                  )
+                  .collection(
+                    'drives',
+                  )
+                  .orderBy(
+                    'date',
+                    descending: true,
+                  )
                   .snapshots(),
               builder: (ctx, drivesSnapshot) {
                 if (drivesSnapshot.connectionState == ConnectionState.waiting) {
@@ -40,9 +49,7 @@ class DashboardScreen extends StatelessWidget {
                       drives[i].data()['minutes-driven-at-night'] as double;
                   totalMiles += drives[i].data()['miles-driven'] as double;
                 }
-                return drives.length == 0
-                    ? Overview(0, 0, 0)
-                    : Overview(totalMinutes, totalNightMinutes, totalMiles);
+                return Overview(totalMinutes, totalNightMinutes, totalMiles);
               },
             ),
             Expanded(

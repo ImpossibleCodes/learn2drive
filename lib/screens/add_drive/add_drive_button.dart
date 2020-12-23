@@ -15,7 +15,6 @@ class AddDriveButton extends StatelessWidget {
           label: "Add Drive",
           labelBackgroundColor: Theme.of(context).backgroundColor,
           onTap: () {
-            print("Adding Drive...");
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {

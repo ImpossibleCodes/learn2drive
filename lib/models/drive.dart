@@ -7,36 +7,41 @@ part 'drive.g.dart';
 @immutable
 @JsonSerializable()
 class Drive {
+  final String id;
+  final DateTime date;
+  final String skills;
   @JsonKey(name: 'minutes-driven')
   final double minutesDriven;
-  @JsonKey(name: 'minutes-driven-at-night')
-  final double minutesDrivenNight;
   @JsonKey(name: 'miles-driven')
   final double milesDriven;
-  @JsonKey(name: 'skills')
-  final String skillsWorkedOn;
-  final DateTime date;
+  @JsonKey(name: 'minutes-driven-at-night')
+  final double minutesDrivenNight;
+  final String comments;
 
   Drive({
-    @required this.minutesDriven,
-    @required this.minutesDrivenNight,
-    @required this.milesDriven,
-    @required this.skillsWorkedOn,
+    @required this.id,
     @required this.date,
+    @required this.skills,
+    @required this.minutesDriven,
+    @required this.milesDriven,
+    @required this.minutesDrivenNight,
+    this.comments,
   });
 
   @override
   bool operator ==(Object other) =>
       other is Drive &&
+      other.id == id &&
+      other.date == date &&
+      other.skills == skills &&
       other.minutesDriven == minutesDriven &&
-      other.minutesDrivenNight == minutesDrivenNight &&
       other.milesDriven == milesDriven &&
-      other.skillsWorkedOn == skillsWorkedOn &&
-      other.date == date;
+      other.minutesDrivenNight == minutesDrivenNight &&
+      other.comments == comments;
 
   @override
-  int get hashCode => hashValues(
-      minutesDriven, minutesDrivenNight, milesDriven, skillsWorkedOn, date);
+  int get hashCode => hashValues(id, date, skills, minutesDriven, milesDriven,
+      minutesDrivenNight, comments);
 
   factory Drive.fromJson(Map<String, dynamic> json) => _$DriveFromJson(json);
 

@@ -52,11 +52,11 @@ class Overview extends StatelessWidget {
                       animation: true,
                       animationDuration: 1200,
                       lineWidth: MediaQuery.of(context).size.width / (3 * 8),
-                      percent: ((totalNightMinutes / 60) / 45) >= 1
+                      percent: ((totalNightMinutes / 60) / 15) >= 1
                           ? 1
-                          : ((totalNightMinutes / 60) / 45),
+                          : ((totalNightMinutes / 60) / 15),
                       center: Text(
-                        (totalNightMinutes / 60).toStringAsFixed(1) + " / 45",
+                        (totalNightMinutes / 60).toStringAsFixed(1) + " / 15",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize:
