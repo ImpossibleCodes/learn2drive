@@ -27,7 +27,7 @@ class _EditDriveState extends State<EditDrive> {
   double _minutesDrivenNight;
   String _comments;
 
-  void _onEditComplete() {
+  void _onEditSubmit() {
     FocusScope.of(context).unfocus();
     if (_formKey.currentState.validate()) {
       Drive drive = Drive(
@@ -261,7 +261,7 @@ class _EditDriveState extends State<EditDrive> {
                       ),
                     ),
                     RaisedButton(
-                      onPressed: _onEditComplete,
+                      onPressed: _onEditSubmit,
                       child: Text('Save Drive'),
                       elevation: 8,
                     ),
