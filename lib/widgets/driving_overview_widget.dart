@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class Overview extends StatelessWidget {
+class DrivingOverview extends StatelessWidget {
   final double totalMinutes;
   final double totalNightMinutes;
   final double totalMiles;
-  Overview(this.totalMinutes, this.totalNightMinutes, this.totalMiles);
+  DrivingOverview(this.totalMinutes, this.totalNightMinutes, this.totalMiles);
   @override
   Widget build(BuildContext context) {
     return Center(

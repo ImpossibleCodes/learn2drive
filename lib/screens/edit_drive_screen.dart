@@ -8,16 +8,16 @@ import 'package:learn2drive/widgets/default_app_bar.dart';
 import 'package:learn2drive/services/drive.dart';
 import 'package:learn2drive/services/auth.dart';
 
-class EditDrive extends StatefulWidget {
+class EditDriveScreen extends StatefulWidget {
   final Drive drive;
 
-  EditDrive(this.drive);
+  EditDriveScreen(this.drive);
 
   @override
-  _EditDriveState createState() => _EditDriveState();
+  _EditDriveScreenState createState() => _EditDriveScreenState();
 }
 
-class _EditDriveState extends State<EditDrive> {
+class _EditDriveScreenState extends State<EditDriveScreen> {
   final _formKey = GlobalKey<FormState>();
   String _id;
   DateTime _date;

@@ -8,12 +8,12 @@ import 'package:learn2drive/widgets/default_app_bar.dart';
 import 'package:learn2drive/services/drive.dart';
 import 'package:learn2drive/services/auth.dart';
 
-class AddDrive extends StatefulWidget {
+class AddDriveScreen extends StatefulWidget {
   @override
-  _AddDriveState createState() => _AddDriveState();
+  _AddDriveScreenState createState() => _AddDriveScreenState();
 }
 
-class _AddDriveState extends State<AddDrive> {
+class _AddDriveScreenState extends State<AddDriveScreen> {
   final _formKey = GlobalKey<FormState>();
   String _id;
   DateTime _date;
@@ -103,11 +103,21 @@ class _AddDriveState extends State<AddDrive> {
                             icon: Icon(Icons.insert_invitation),
                             onPressed: () {
                               showDatePicker(
-                                      context: context,
-                                      initialDate: DateTime.now(),
-                                      firstDate: DateTime(2016),
-                                      lastDate: DateTime.now())
-                                  .then(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2016),
+                                lastDate: DateTime.now(),
+                                // builder: (BuildContext context, Widget child) {
+                                //   return Theme(
+                                //     data: Theme.of(context).copyWith(
+                                //       colorScheme: ColorScheme.dark(
+                                //         primary: Color(0xffff0000),
+                                //       ),
+                                //     ),
+                                //     child: child,
+                                //   );
+                                // },
+                              ).then(
                                 (d) {
                                   setState(() => _date = d);
                                 },

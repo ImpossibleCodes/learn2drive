@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:learn2drive/widgets/default_app_bar.dart';
-import 'package:learn2drive/widgets/drive/add_drive_button.dart';
+import 'package:learn2drive/widgets/add_drive_button.dart';
 import 'package:learn2drive/services/auth.dart';
-import 'package:learn2drive/widgets/drive/drives_list.dart';
-import 'package:learn2drive/widgets/overview_widget.dart';
+import 'package:learn2drive/widgets/drives_list.dart';
+import 'package:learn2drive/widgets/driving_overview_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -49,7 +49,8 @@ class DashboardScreen extends StatelessWidget {
                       drives[i].data()['minutes-driven-at-night'] as double;
                   totalMiles += drives[i].data()['miles-driven'] as double;
                 }
-                return Overview(totalMinutes, totalNightMinutes, totalMiles);
+                return DrivingOverview(
+                    totalMinutes, totalNightMinutes, totalMiles);
               },
             ),
             Expanded(

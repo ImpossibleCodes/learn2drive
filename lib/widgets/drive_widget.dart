@@ -40,7 +40,7 @@ class _DriveWidgetState extends State<DriveWidget> {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return EditDrive(widget.drive);
+                  return EditDriveScreen(widget.drive);
                 },
               ),
             );
