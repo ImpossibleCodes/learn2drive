@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:learn2drive/screens/auth/auth.dart';
-import 'package:learn2drive/screens/auth/auth_screen.dart';
+import 'package:learn2drive/services//auth.dart';
+import 'package:learn2drive/screens/auth_screen.dart';
 
 class DefaultAppBar extends AppBar {
   DefaultAppBar(ctx)

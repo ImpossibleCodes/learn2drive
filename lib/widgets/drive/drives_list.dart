@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:learn2drive/models/drive.dart';
 
-import 'package:learn2drive/screens/auth/auth.dart';
-
-import 'drive_widget.dart';
+import 'package:learn2drive/services/auth.dart';
+import 'package:learn2drive/services/drive.dart';
+import 'package:learn2drive/widgets/drive/drive_widget.dart';
 
 class DrivesList extends StatelessWidget {
   @override

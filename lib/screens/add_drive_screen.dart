@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
-import 'package:learn2drive/default_app_bar.dart';
-import 'package:learn2drive/models/drive.dart';
-import 'package:learn2drive/screens/auth/auth.dart';
+import 'package:learn2drive/widgets/default_app_bar.dart';
+import 'package:learn2drive/services/drive.dart';
+import 'package:learn2drive/services/auth.dart';
 
 class AddDrive extends StatefulWidget {
   @override

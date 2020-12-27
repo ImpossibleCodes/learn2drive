@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:learn2drive/screens/auth/auth.dart';
-import 'package:learn2drive/screens/dashboard/dashboard_screen.dart';
+import 'package:learn2drive/services/auth.dart';
+import 'package:learn2drive/screens/dashboard_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   @override
