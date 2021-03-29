@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:learn2drive/services/auth.dart';
+import 'package:learn2drive/helpers/auth.dart';
 import 'package:learn2drive/screens/auth_screen.dart';
 import 'package:learn2drive/screens/dashboard_screen.dart';
 

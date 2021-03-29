@@ -11,9 +11,9 @@ Drive _$DriveFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
     skills: json['skills'] as String,
-    minutesDriven: (json['minutes-driven'] as num)?.toDouble(),
+    minutesDriven: (json['minutes-driven'] as num)?.toInt(),
     milesDriven: (json['miles-driven'] as num)?.toDouble(),
-    minutesDrivenNight: (json['minutes-driven-at-night'] as num)?.toDouble(),
+    minutesDrivenNight: (json['minutes-driven-at-night'] as num)?.toInt(),
     comments: json['comments'] as String,
   );
 }

@@ -11,11 +11,11 @@ class Drive {
   final DateTime date;
   final String skills;
   @JsonKey(name: 'minutes-driven')
-  final double minutesDriven;
+  final int minutesDriven;
   @JsonKey(name: 'miles-driven')
   final double milesDriven;
   @JsonKey(name: 'minutes-driven-at-night')
-  final double minutesDrivenNight;
+  final int minutesDrivenNight;
   final String comments;
 
   Drive({

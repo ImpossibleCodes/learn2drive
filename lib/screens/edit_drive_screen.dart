@@ -4,9 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
+import 'package:learn2drive/helpers/auth.dart';
+import 'package:learn2drive/helpers/decimal_formatter.dart';
 import 'package:learn2drive/widgets/default_app_bar.dart';
-import 'package:learn2drive/services/drive.dart';
-import 'package:learn2drive/services/auth.dart';
+import 'package:learn2drive/models/drive.dart';
 
 class EditDriveScreen extends StatefulWidget {
   final Drive drive;
@@ -22,9 +23,9 @@ class _EditDriveScreenState extends State<EditDriveScreen> {
   String _id;
   DateTime _date;
   String _skills;
-  double _minutesDriven;
+  int _minutesDriven;
   double _milesDriven;
-  double _minutesDrivenNight;
+  int _minutesDrivenNight;
   String _comments;
 
   void _onEditSubmit() {
@@ -165,7 +166,7 @@ class _EditDriveScreenState extends State<EditDriveScreen> {
                                 return null;
                               },
                               onChanged: (value) =>
-                                  _minutesDriven = double.parse(value),
+                                  _minutesDriven = int.parse(value),
                               autocorrect: false,
                               enabled: true,
                               enableSuggestions: false,
@@ -202,9 +203,14 @@ class _EditDriveScreenState extends State<EditDriveScreen> {
                               enabled: true,
                               enableSuggestions: false,
                               inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly,
+                                DecimalTextInputFormatter(
+                                  decimalRange: 2,
+                                  activatedNegativeValues: false,
+                                ),
                               ],
-                              keyboardType: TextInputType.number,
+                              keyboardType: TextInputType.numberWithOptions(
+                                decimal: true,
+                              ),
                               textCapitalization: TextCapitalization.none,
                             ),
                           ),
@@ -227,7 +233,7 @@ class _EditDriveScreenState extends State<EditDriveScreen> {
                                 return null;
                               },
                               onChanged: (value) =>
-                                  _minutesDrivenNight = double.parse(value),
+                                  _minutesDrivenNight = int.parse(value),
                               autocorrect: false,
                               enabled: true,
                               enableSuggestions: false,

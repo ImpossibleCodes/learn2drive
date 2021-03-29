@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'package:learn2drive/services//auth.dart';
+import 'package:learn2drive/helpers/auth.dart';
 import 'package:learn2drive/screens/dashboard_screen.dart';
 
 class FixDocs extends StatelessWidget {

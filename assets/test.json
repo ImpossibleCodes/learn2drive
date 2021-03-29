@@ -1,0 +1,211 @@
+//curl "https://api.mapbox.com/matching/v5/mapbox/driving/-117.17282,32.71204;-117.17288,32.71225;-117.17293,32.71244;-117.17292,32.71256;-117.17298,32.712603;-117.17314,32.71259;-117.17334,32.71254?geometries=geojson&tidy=true&access_token=pk.eyJ1IjoiMjAyM25hZ3Jhd2FsIiwiYSI6ImNrajd3bHBucTFrYnMyc3A2YXk3a3B3MTgifQ.JRHKzQmSp0Y8mbpyhWMpuw"
+
+{
+    "matchings": [
+        {
+            "confidence": 0,
+            "weight_name": "auto",
+            "weight": 42.897,
+            "duration": 19.959,
+            "distance": 103.816,
+            "legs": [
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 2.598,
+                    "distance": 24.539,
+                    "weight": 2.793,
+                    "summary": "North Harbor Drive"
+                },
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 2.294,
+                    "distance": 21.663,
+                    "weight": 2.466,
+                    "summary": "North Harbor Drive"
+                },
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 1.126,
+                    "distance": 13.025,
+                    "weight": 1.19,
+                    "summary": "North Harbor Drive"
+                },
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 5.768,
+                    "distance": 9.353,
+                    "weight": 9.799,
+                    "summary": "North Harbor Drive, Tuna Wharf St"
+                },
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 3.267,
+                    "distance": 15.092,
+                    "weight": 15.484,
+                    "summary": "Tuna Wharf St"
+                },
+                {
+                    "steps": [],
+                    "admins": [
+                        {
+                            "iso_3166_1_alpha3": "USA",
+                            "iso_3166_1": "US"
+                        }
+                    ],
+                    "duration": 4.906,
+                    "distance": 20.144,
+                    "weight": 11.164,
+                    "summary": "Tuna Wharf St"
+                }
+            ],
+            "geometry": {
+                "coordinates": [
+                    [
+                        -117.172834,
+                        32.712036
+                    ],
+                    [
+                        -117.172908,
+                        32.712246
+                    ],
+                    [
+                        -117.17292,
+                        32.71244
+                    ],
+                    [
+                        -117.172922,
+                        32.71256
+                    ],
+                    [
+                        -117.172922,
+                        32.712599
+                    ],
+                    [
+                        -117.17298,
+                        32.7126
+                    ],
+                    [
+                        -117.17314,
+                        32.712597
+                    ],
+                    [
+                        -117.173344,
+                        32.712546
+                    ]
+                ],
+                "type": "LineString"
+            }
+        }
+    ],
+    "tracepoints": [
+        {
+            "matchings_index": 0,
+            "waypoint_index": 0,
+            "alternatives_count": 0,
+            "distance": 1.354,
+            "name": "",
+            "location": [
+                -117.172834,
+                32.712036
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 1,
+            "alternatives_count": 0,
+            "distance": 2.627,
+            "name": "",
+            "location": [
+                -117.172908,
+                32.712246
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 2,
+            "alternatives_count": 0,
+            "distance": 0.931,
+            "name": "",
+            "location": [
+                -117.17292,
+                32.71244
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 3,
+            "alternatives_count": 0,
+            "distance": 0.134,
+            "name": "",
+            "location": [
+                -117.172922,
+                32.71256
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 4,
+            "alternatives_count": 0,
+            "distance": 0.301,
+            "name": "",
+            "location": [
+                -117.17298,
+                32.7126
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 5,
+            "alternatives_count": 0,
+            "distance": 0.795,
+            "name": "",
+            "location": [
+                -117.17314,
+                32.712597
+            ]
+        },
+        {
+            "matchings_index": 0,
+            "waypoint_index": 6,
+            "alternatives_count": 0,
+            "distance": 0.784,
+            "name": "",
+            "location": [
+                -117.173344,
+                32.712546
+            ]
+        }
+    ],
+    "code": "Ok",
+    "uuid": "w4PreLyLcoTlC0UrqLsL2wj15bUWmutvI4A3a5cfVi3QH6zGoNb8AA=="
+}

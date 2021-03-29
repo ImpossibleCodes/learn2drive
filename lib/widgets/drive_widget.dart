@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:learn2drive/services/drive.dart';
+import 'package:learn2drive/models/drive.dart';
 import 'package:learn2drive/screens/edit_drive_screen.dart';
 
 class DriveWidget extends StatefulWidget {

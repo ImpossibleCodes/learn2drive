@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:learn2drive/widgets/default_app_bar.dart';
-import 'package:learn2drive/widgets/add_drive_button.dart';
-import 'package:learn2drive/services/auth.dart';
+import 'package:learn2drive/widgets/drive_action_button.dart';
+import 'package:learn2drive/helpers/auth.dart';
 import 'package:learn2drive/widgets/drives_list.dart';
 import 'package:learn2drive/widgets/driving_overview_widget.dart';
 
@@ -59,7 +59,7 @@ class DashboardScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: AddDriveButton(),
+      floatingActionButton: DriveActionButton(),
     );
   }
 }

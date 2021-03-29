@@ -4,7 +4,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:learn2drive/screens/add_drive_screen.dart';
 import 'package:learn2drive/screens/track_drive_screen.dart';
 
-class AddDriveButton extends StatelessWidget {
+class DriveActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
@@ -30,13 +30,13 @@ class AddDriveButton extends StatelessWidget {
           label: "Track Drive",
           labelBackgroundColor: Theme.of(context).backgroundColor,
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) {
-            //       return TrackDriveScreen();
-            //     },
-            //   ),
-            // );
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return TrackDriveScreen();
+                },
+              ),
+            );
             print("Tracking Drive...");
           },
         )
