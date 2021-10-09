@@ -256,10 +256,12 @@ class _AddDriveScreenState extends State<AddDriveScreen> {
                         textCapitalization: TextCapitalization.sentences,
                       ),
                     ),
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: _onSubmit,
                       child: Text('Add Drive'),
-                      elevation: 8,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 8,
+                      ),
                     ),
                   ],
                 ),

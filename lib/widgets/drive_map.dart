@@ -138,7 +138,7 @@ class _DriveMapState extends State<DriveMap> {
 
     return SizedBox(
       width: double.maxFinite,
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(msg),
         onPressed: f,
       ),
@@ -150,7 +150,7 @@ class _DriveMapState extends State<DriveMap> {
     String msg = 'START';
     return SizedBox(
       width: double.maxFinite,
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(msg),
         onPressed: f,
       ),
@@ -171,7 +171,7 @@ class _DriveMapState extends State<DriveMap> {
   }
 
   Widget getButton() {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text("Get Current Location"),
       onPressed: onGetCurrentLocation,
     );

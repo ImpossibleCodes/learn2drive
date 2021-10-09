@@ -48,10 +48,12 @@ class FixDocs extends StatelessWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(16),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () => _addIDs(context),
                 child: Text("Add IDs"),
-                elevation: 8,
+                style: ElevatedButton.styleFrom(
+                  elevation: 8,
+                ),
               ),
             ),
           ),

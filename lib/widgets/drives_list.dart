@@ -31,7 +31,7 @@ class DrivesList extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
-        final drives = drivesSnapshot.data.documents;
+        final drives = drivesSnapshot.data.docs;
         return drives.length == 0
             ? Center(
                 child: Card(

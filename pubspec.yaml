@@ -53,7 +53,7 @@ dependencies:
   # HTTP Requests
   http: ^0.13.1
   # Latitude Longitude
-  latlong: ^0.6.1
+  latlng: ^0.1.0
 
 dev_dependencies:
   flutter_test:

@@ -68,8 +68,7 @@ class _StopWatchState extends State<StopWatch> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              RaisedButton(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+              ElevatedButton(
                 onPressed: () {
                   timerStream = stopWatchStream();
                   timerSubscription = timerStream.listen((int newTick) {
@@ -87,17 +86,20 @@ class _StopWatchState extends State<StopWatch> {
                     });
                   });
                 },
-                color: Colors.green,
                 child: Text(
                   'START',
                   style: TextStyle(
                     fontSize: 20.0,
                   ),
                 ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+                ),
               ),
               SizedBox(width: 40.0),
-              RaisedButton(
-                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+              ElevatedButton(
                 onPressed: () {
                   timerSubscription.cancel();
                   timerStream = null;
@@ -107,13 +109,17 @@ class _StopWatchState extends State<StopWatch> {
                     secondsStr = '00';
                   });
                 },
-                color: Colors.red,
                 child: Text(
                   'RESET',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
                 ),
               ),
             ],

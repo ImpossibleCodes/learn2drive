@@ -11,7 +11,7 @@ Future<Match> fetchMatch(List<LatLng> coordinates) async {
       "&geometries=geojson&tidy=true&access_token=pk.eyJ1IjoiMjAyM25hZ3Jhd2FsIiwiYSI6ImNrajd3bHBucTFrYnMyc3A2YXk3a3B3MTgifQ.JRHKzQmSp0Y8mbpyhWMpuw";
 
   requestURL += coordinatesToString(coordinates) + parameters;
-  final response = await http.get(requestURL);
+  final response = await http.get(Uri.parse(requestURL));
 
   if (response.statusCode == 200 &&
       json.decode(response.body)['code'] as String == "Ok") {

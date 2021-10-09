@@ -39,7 +39,7 @@ class DashboardScreen extends StatelessWidget {
                     child: CircularProgressIndicator(),
                   );
                 }
-                final drives = drivesSnapshot.data.documents;
+                final drives = drivesSnapshot.data.docs;
                 double totalMinutes = 0;
                 double totalNightMinutes = 0;
                 double totalMiles = 0;

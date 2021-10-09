@@ -266,10 +266,12 @@ class _EditDriveScreenState extends State<EditDriveScreen> {
                         textCapitalization: TextCapitalization.sentences,
                       ),
                     ),
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: _onEditSubmit,
                       child: Text('Save Drive'),
-                      elevation: 8,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 8,
+                      ),
                     ),
                   ],
                 ),
