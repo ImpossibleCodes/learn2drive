@@ -1,16 +1,6 @@
-# learn2drive
+# Learn2Drive
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A teenager must take the general knowledge drivers test and then log 45 hours of safe driving before taking the final actions to receive their driver's license in the state of Virginia. 
+Helps log the hours driven, routes taken, distance traveled, as well as the weather conditions in which the drive occurred, in order for student drivers to keep track of their statistics, and present proof of their logged hours.
+We decided to use the Flutter SDK created by Google to create the mobile app for both IOS and Android. 
+Chose to continue to pursue this beyond the HackTJ 7.5 Hackathon this was originally created for. 
